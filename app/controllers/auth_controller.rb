@@ -8,6 +8,7 @@ class AuthController < ApplicationController
       @user.username = params[:username]
       @user.password = params[:password]
       @user.avatar = params[:avatar]
+      @user.likes = []
       @user.save
 
       render json: { message: @user }, status: :ok
