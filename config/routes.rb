@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   get '/api/user' => 'user#getAll', controller: 'user'
   get '/api/user/:id' => 'user#findById', controller: 'user'
-  post '/api/user/avatar' => 'user#uploadAvatar', controller: 'user'
+  patch '/api/user/avatar' => 'user#uploadAvatar', controller: 'user'
 
   post '/api/auth/signup' => 'auth#sign_up', controller: 'auth'
   post '/api/auth/login' => 'auth#login', controller: 'auth'
