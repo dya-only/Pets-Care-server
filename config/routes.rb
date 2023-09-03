@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   # Hospital
   post '/api/hosp/add' => 'hosp#add', controller: 'hosp'
   post '/api/hosp/remove' => 'hosp#remove', controller: 'hosp'
+  post '/api/hosp/find' => 'hosp#find', controller: 'hosp'
 end

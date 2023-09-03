@@ -63,4 +63,26 @@ class HospController < ApplicationController
       render json: { success: false, error: '삭제할 개체를 찾지 못하였습니다.' }
     end
   end
+  
+  def find
+    @id = params[:id]
+    @latitude = params[:latitude]
+    @longitude = params[:longitude]
+
+    @user = User.find_by(id: @id)
+    @likes = JSON.parse(@user.likes)
+
+    @cnt = 0
+    @likes.each do |like|
+      if like['latitude'] == @latitude && like['longitude'] == @longitude
+        @cnt += 1
+      end
+    end
+
+    if @cnt > 0
+      render json: { success: true }
+    else
+      render json: { success: false }
+    end
+  end
 end
